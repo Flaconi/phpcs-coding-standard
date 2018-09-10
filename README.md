@@ -1,7 +1,7 @@
 # Flaconi Coding Standard
 
-[![Latest version](https://img.shields.io/packagist/v/Flaconi/phpcs-coding-standard.svg?style=flat-square&colorB=007EC6)](https://packagist.org/packages/Flaconi/phpcs-coding-standard)
-[![Downloads](https://img.shields.io/packagist/dt/Flaconi/phpcs-coding-standard.svg?style=flat-square&colorB=007EC6)](https://packagist.org/packages/Flaconi/phpcs-coding-standard)
+[![Latest version](https://img.shields.io/packagist/v/flaconi/coding-standard.svg?style=flat-square&colorB=007EC6)](https://packagist.org/packages/flaconi/coding-standard)
+[![Downloads](https://img.shields.io/packagist/dt/flaconi/coding-standard.svg?style=flat-square&colorB=007EC6)](https://packagist.org/packages/flaconi/coding-standard)
 [![Travis build status](https://img.shields.io/travis/Flaconi/phpcs-coding-standard/master.svg?label=travis&style=flat-square)](https://travis-ci.org/Flaconi/phpcs-coding-standard)
 [![Code coverage](https://img.shields.io/coveralls/Flaconi/phpcs-coding-standard/master.svg?style=flat-square)](https://coveralls.io/github/Flaconi/phpcs-coding-standard?branch=master)
 ![PHPStan](https://img.shields.io/badge/style-level%207-brightgreen.svg?style=flat-square&label=phpstan)
