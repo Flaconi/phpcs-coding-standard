@@ -1,0 +1,39 @@
+{
+  "name": "flaconi/coding-standard",
+  "description": "Flaconi Coding Standard for PHP_CodeSniffer",
+  "license": "MIT",
+  "type": "phpcodesniffer-standard",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "bin-dir": "bin"
+  },
+  "require": {
+    "php": "^7.2",
+    "squizlabs/php_codesniffer": "^3.3",
+    "slevomat/coding-standard": "^4.6"
+  },
+  "require-dev": {
+    "phing/phing": "^2.16",
+    "phpunit/phpunit": "^7.3",
+    "escapestudios/symfony2-coding-standard": "^3.4",
+    "jangregor/phpstan-prophecy": "^0.2.0",
+    "johnkary/phpunit-speedtrap": "^3.0",
+    "phpstan/phpstan": "^0.10.2",
+    "phpstan/phpstan-phpunit": "^0.10.0",
+    "phpstan/phpstan-strict-rules": "^0.10",
+    "pyrech/composer-changelogs": "^1.6",
+    "roave/security-advisories": "dev-master"
+
+  },
+  "autoload": {
+    "psr-4": {
+      "FlaconiCodingStandard\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "FlaconiCodingStandard\\": "tests"
+    }
+  }
+}

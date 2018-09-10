@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<ruleset name="Jerry">
+    <description>Flaconi Coding Standard</description>
+
+    <file>src</file>
+    <file>tests</file>
+
+    <exclude-pattern>*/Tests/*/Data/*.php</exclude-pattern>
+
+    <arg name="colors" />
+    <arg value="np"/>
+
+    <config name="installed_paths" value="vendor/escapestudios/symfony2-coding-standard,src" />
+
+    <rule ref="Symfony">
+        <exclude name="Squiz.Commenting.FunctionComment" />
+        <exclude name="Symfony.Commenting.FunctionComment" />
+        <exclude name="Symfony.NamingConventions.ValidClassName.InvalidInterfaceName" />
+        <exclude name="Symfony.NamingConventions.ValidClassName.InvalidAbstractName" />
+        <exclude name="Symfony.Functions.Arguments.Invalid" />
+        <exclude name="Symfony.Functions.ReturnType.Invalid" />
+        <exclude name="Symfony.ControlStructure.YodaConditions.Invalid" />
+    </rule>
+
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax" />
+
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/ruleset.xml">
+        <properties>
+            <property name="linesCountBetweenDifferentAnnotationsTypes" value="1" />
+        </properties>
+
+        <exclude name="PEAR.Commenting.FunctionComment" />
+        <exclude name="SlevomatCodingStandard.Files.TypeNameMatchesFileName"/>
+        <exclude name="SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces"/>
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameAfterKeyword"/>
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation.NonFullyQualifiedClassName" />
+        <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableParameterTypeHintSpecification" />
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.UselessDocComment"/>
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions.NonFullyQualifiedException" />
+        <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName" />
+        <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedNameWithoutNamespace" />
+        <exclude name="SlevomatCodingStandard.ControlStructures.RequireYodaComparison" />
+        <exclude name="SlevomatCodingStandard.Commenting.RequireOneLinePropertyDocComment.MultiLinePropertyComment" />
+        <exclude name="SlevomatCodingStandard.Commenting.DocCommentSpacing.IncorrectLinesCountAfterLastContent" />
+        <exclude name="SlevomatCodingStandard.Classes.SuperfluousExceptionNaming.SuperfluousSuffix" />
+        <exclude name="SlevomatCodingStandard.Commenting.DocCommentSpacing.IncorrectLinesCountBetweenDifferentAnnotationsTypes" />
+        <exclude name="SlevomatCodingStandard.ControlStructures.NewWithoutParentheses.UselessParentheses" />
+        <exclude name="SlevomatCodingStandard.Commenting.UselessInheritDocComment.UselessInheritDocComment" />
+        <exclude name="SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter" />
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint" />
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingPropertyTypeHint">
+        <exclude-pattern>*/tests/*</exclude-pattern>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses">
+        <properties>
+            <property name="searchAnnotations" value="true"/>
+        </properties>
+    </rule>
+</ruleset>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="Flaconi Coding Standard" default="check">
+
+    <target name="check" depends="
+		composer,
+		cs,
+		tests,
+		phpstan
+	"/>
+
+    <target name="composer">
+        <exec
+                executable="composer"
+                logoutput="true"
+                passthru="true"
+                checkreturn="true"
+        >
+            <arg value="install"/>
+            <arg value="--ignore-platform-reqs"/>
+        </exec>
+    </target>
+
+    <target name="cs">
+        <exec
+                executable="bin/phpcs"
+                logoutput="true"
+                passthru="true"
+                checkreturn="true"
+        />
+    </target>
+
+    <target name="cs-fix">
+        <exec
+                executable="bin/phpcbf"
+                logoutput="true"
+                passthru="true"
+                checkreturn="true"
+        />
+    </target>
+
+    <target name="tests">
+        <exec
+                executable="bin/phpunit"
+                logoutput="true"
+                passthru="true"
+                checkreturn="true"
+        />
+    </target>
+
+    <target name="phpstan">
+        <exec
+                executable="bin/phpstan"
+                logoutput="true"
+                passthru="true"
+                checkreturn="true"
+        >
+            <arg value="analyse"/>
+            <arg value="-l"/>
+            <arg value="7"/>
+            <arg value="-c"/>
+            <arg path="phpstan.neon"/>
+        </exec>
+    </target>
+
+</project>
