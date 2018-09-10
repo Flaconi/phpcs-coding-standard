@@ -13,7 +13,7 @@ class UseStaticCallsForAssertInTestcaseSniffTest extends TestCase
 {
     public function testErrors(): void
     {
-        $report = self::checkFile(__DIR__.'/data/ClassWithNonStaticAssert.php');
+        $report = self::checkFile(__DIR__.'/Data/ClassWithNonStaticAssert.php');
 
         self::assertEquals(1, $report->getErrorCount());
         self::assertSniffError($report, 11, UseStaticCallsForAssertInTestcaseSniff::CODE_NON_STATIC_ASSERTION_METHOD_USAGE, 'The PhpUnit TestCase is using a non static usage of Assertion Methods');
@@ -23,7 +23,7 @@ class UseStaticCallsForAssertInTestcaseSniffTest extends TestCase
 
     public function testIgnoreNonTestClass(): void
     {
-        $report = self::checkFile(__DIR__.'/data/FileWithoutClass.php');
+        $report = self::checkFile(__DIR__.'/Data/FileWithoutClass.php');
 
         self::assertEquals(0, $report->getErrorCount());
     }

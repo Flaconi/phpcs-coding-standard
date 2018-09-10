@@ -14,7 +14,7 @@ class UseMethodPrefixInTestcaseSniffTest extends TestCase
 {
     public function testErrors(): void
     {
-        $report = self::checkFile(__DIR__.'/data/ClassWithTestAnnotation.php');
+        $report = self::checkFile(__DIR__.'/Data/ClassWithTestAnnotation.php');
 
         self::assertEquals(1, $report->getErrorCount());
         self::assertSniffError($report, 10, UseMethodPrefixInTestcaseSniff::TEST_ANNOTATION_USAGE_FOUND, 'The PhpUnit TestCase is using a @test annotation instead of method prefix');
@@ -24,7 +24,7 @@ class UseMethodPrefixInTestcaseSniffTest extends TestCase
 
     public function testIgnoreNonTestClass(): void
     {
-        $report = self::checkFile(__DIR__.'/data/FileWithoutClass.php');
+        $report = self::checkFile(__DIR__.'/Data/FileWithoutClass.php');
 
         self::assertEquals(0, $report->getErrorCount());
     }
