@@ -50,8 +50,6 @@ The recommended way to install Slevomat Coding Standard is [through Composer](ht
 }
 ```
 
-It's also recommended to install [jakub-onderka/php-parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) which checks source code for syntax errors. Sniffs count on the processed code to be syntactically valid (no parse errors), otherwise they can behave unexpectedly. It is advised to run `PHP-Parallel-Lint` in your build tool before running `PHP_CodeSniffer` and exiting the build process early if `PHP-Parallel-Lint` fails.
-
 ## How to run the sniffs
 
 You can choose one of two ways to run only selected sniffs from the standard on your codebase:
@@ -120,7 +118,3 @@ bin/phing
 ```
 
 We are always looking forward for your bugreports, feature requests and pull requests. Thank you.
-
-## Code of Conduct
-
-This project adheres to a [Contributor Code of Conduct](https://github.com/flaconi/coding-standard/blob/master/CODE_OF_CONDUCT.md). By participating in this project and its community, you are expected to uphold this code.
