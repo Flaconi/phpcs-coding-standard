@@ -13,11 +13,11 @@ Flaconi Coding Standard for [PHP_CodeSniffer](https://github.com/squizlabs/PHP_C
 ## Table of contents
 
 1. [Sniffs included in this standard](#sniffs-included-in-this-standard)
-  - [Test - improving the code style of phpunit test cases](#test---improving-the-code-style-of-phpunit-test-cases)
+    - [Test - improving the code style of phpunit test cases](#test---improving-the-code-style-of-phpunit-test-cases)
 2. [Installation](#installation)
 3. [How to run the sniffs](#how-to-run-the-sniffs)
-  - [Choose which sniffs to run](#choose-which-sniffs-to-run)
-  - [Using all sniffs from the standard](#using-all-sniffs-from-the-standard)
+    - [Choose which sniffs to run](#choose-which-sniffs-to-run)
+    - [Using all sniffs from the standard](#using-all-sniffs-from-the-standard)
 4. [Fixing errors automatically](#fixing-errors-automatically)
 5. [Suppressing sniffs locally](#suppressing-sniffs-locally)
 6. [Contributing](#contributing)
