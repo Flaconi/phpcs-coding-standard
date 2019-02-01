@@ -51,7 +51,6 @@ class UseStaticCallsForAssertInTestcaseSniff implements Sniff
      */
     public function process(File $phpcsFile, $stackPtr): void
     {
-
         if (!TestClassHelper::isTestCaseClass($phpcsFile)) {
             return;
         }
