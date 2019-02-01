@@ -22,9 +22,16 @@ class UseStaticCallsForAssertInTestcaseSniff implements Sniff
 
     public function __construct()
     {
-        $this->assertMethods = \array_filter(\get_class_methods('PHPUnit\Framework\Assert'), static function (string $method) {
-            return \strpos($method, 'assert') === 0;
-        });
+        if (!\class_exists('PHPUnit\Framework\Assert')) {
+            return;
+        }
+
+        $this->assertMethods = \array_filter(
+            \get_class_methods('PHPUnit\Framework\Assert'),
+            static function (string $method) {
+                return \strpos($method, 'assert') === 0;
+            }
+        );
     }
 
 
