@@ -57,7 +57,7 @@ class UseMethodPrefixInTestcaseSniff implements Sniff
         $methodPoint = TokenHelper::findNextContent($phpcsFile, [\T_STRING], $methodName, $stackPtr);
 
         if ($methodPoint === null) {
-            return;
+            return; // @codeCoverageIgnore
         }
 
         $phpcsFile->fixer->replaceToken($annotations[0]->getStartPointer(), '');

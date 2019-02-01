@@ -23,7 +23,7 @@ class UseStaticCallsForAssertInTestcaseSniff implements Sniff
     public function __construct()
     {
         if (!\class_exists('PHPUnit\Framework\Assert')) {
-            return;
+            return; // @codeCoverageIgnore
         }
 
         $this->assertMethods = \array_filter(
@@ -58,7 +58,7 @@ class UseStaticCallsForAssertInTestcaseSniff implements Sniff
         $methodPoint = IdentificatorHelper::findEndPointer($phpcsFile, $stackPtr);
 
         if ($methodPoint === null) {
-            return;
+            return; // @codeCoverageIgnore
         }
 
         $methodCall = TokenHelper::getContent($phpcsFile, $methodPoint, $methodPoint);
@@ -80,7 +80,7 @@ class UseStaticCallsForAssertInTestcaseSniff implements Sniff
         $operatorPointer = TokenHelper::findNextEffective($phpcsFile, $stackPtr + 1);
 
         if ($operatorPointer === null) {
-            return;
+            return; // @codeCoverageIgnore
         }
 
         $phpcsFile->fixer->beginChangeset();
