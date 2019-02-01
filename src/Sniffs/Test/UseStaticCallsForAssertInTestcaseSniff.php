@@ -36,7 +36,7 @@ class UseStaticCallsForAssertInTestcaseSniff implements Sniff
 
 
     /**
-     * @inheritDoc
+     * @return int[]
      */
     public function register(): array
     {

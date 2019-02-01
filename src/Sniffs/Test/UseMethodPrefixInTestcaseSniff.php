@@ -17,7 +17,7 @@ class UseMethodPrefixInTestcaseSniff implements Sniff
     public const TEST_ANNOTATION_USAGE_FOUND = 'TestAnnotationUsageFound';
 
     /**
-     * @inheritDoc
+     * @return int[]
      */
     public function register(): array
     {
