@@ -31,7 +31,8 @@
 
         <exclude name="PEAR.Commenting.FunctionComment" />
         <exclude name="SlevomatCodingStandard.Files.TypeNameMatchesFileName"/>
-        <exclude name="SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces"/>
+        <exclude name="SlevomatCodingStandard.Functions.TrailingCommaInCall.MissingTrailingComma"/>
+        <exclude name="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces"/>
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameAfterKeyword"/>
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation.NonFullyQualifiedClassName" />
         <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces"/>

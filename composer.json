@@ -11,7 +11,7 @@
   "require": {
     "php": "^7.2",
     "squizlabs/php_codesniffer": "^3.3",
-    "slevomat/coding-standard": "^4.7"
+    "slevomat/coding-standard": "^5.0"
   },
   "require-dev": {
     "phing/phing": "^2.16",
@@ -34,6 +34,11 @@
   "autoload-dev": {
     "psr-4": {
       "FlaconiCodingStandard\\": "tests"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "2.0-dev"
     }
   }
 }
