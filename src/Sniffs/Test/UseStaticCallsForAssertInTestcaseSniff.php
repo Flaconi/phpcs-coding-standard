@@ -16,7 +16,7 @@ class UseStaticCallsForAssertInTestcaseSniff implements Sniff
     public const CODE_NON_STATIC_ASSERTION_METHOD_USAGE = 'NonStaticAssertionMethodUsage';
 
     /**
-     * @var string[]
+     * @var array<string>
      */
     private $assertMethods;
 
@@ -36,7 +36,7 @@ class UseStaticCallsForAssertInTestcaseSniff implements Sniff
 
 
     /**
-     * @return int[]
+     * @return array<int>
      */
     public function register(): array
     {
