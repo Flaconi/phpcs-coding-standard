@@ -8,6 +8,7 @@ use SlevomatCodingStandard\Sniffs\TestCase;
  * @author Alexander Miehe <alexander.miehe@flaconi.de>
  *
  * @covers \FlaconiCodingStandard\Sniffs\Test\UseMethodPrefixInTestcaseSniff
+ * @covers \FlaconiCodingStandard\Sniffs\Test\UseStaticCallsForAssertInTestcaseSniff
  * @covers \FlaconiCodingStandard\Helper\TestClassHelper
  */
 class UseMethodPrefixInTestcaseSniffTest extends TestCase

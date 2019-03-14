@@ -44,7 +44,19 @@
                 logoutput="true"
                 passthru="true"
                 checkreturn="true"
-        />
+        >
+            <arg value="--dump-xdebug-filter"/>
+            <arg value="coverage/xdebug-filter.php"/>
+        </exec>
+        <exec
+                executable="bin/phpunit"
+                logoutput="true"
+                passthru="true"
+                checkreturn="true"
+        >
+            <arg value="--prepend"/>
+            <arg value="coverage/xdebug-filter.php"/>
+        </exec>
     </target>
 
     <target name="phpstan">

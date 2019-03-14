@@ -9,7 +9,7 @@ parameters:
         - %currentWorkingDirectory%/vendor/squizlabs/php_codesniffer/src/Util/Tokens.php
     level: 7
     paths:
-        - src
+        - FlaconiCodingStandard
         - tests
     excludes_analyse:
         - */tests/*/Data/*
