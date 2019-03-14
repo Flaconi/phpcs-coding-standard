@@ -8,6 +8,10 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 use SlevomatCodingStandard\Helpers\AnnotationHelper;
 use SlevomatCodingStandard\Helpers\FunctionHelper;
 use SlevomatCodingStandard\Helpers\TokenHelper;
+use function count;
+use function ucfirst;
+use const T_FUNCTION;
+use const T_STRING;
 
 /**
  * @author Adam Szajuk <ext.adam.szajuk@flaconi.de>
@@ -22,13 +26,15 @@ class UseMethodPrefixInTestcaseSniff implements Sniff
     public function register(): array
     {
         return [
-            \T_FUNCTION,
+            T_FUNCTION,
         ];
     }
 
     /**
      * @param File $phpcsFile
      * @param int  $stackPtr
+     *
+     * @phpcs:disable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
      */
     public function process(File $phpcsFile, $stackPtr): void
     {
@@ -38,7 +44,7 @@ class UseMethodPrefixInTestcaseSniff implements Sniff
 
         $annotations = AnnotationHelper::getAnnotationsByName($phpcsFile, $stackPtr, '@test');
 
-        if (\count($annotations) === 0) {
+        if (count($annotations) === 0) {
             return;
         }
 
@@ -54,7 +60,7 @@ class UseMethodPrefixInTestcaseSniff implements Sniff
             return;
         }
 
-        $methodPoint = TokenHelper::findNextContent($phpcsFile, [\T_STRING], $methodName, $stackPtr);
+        $methodPoint = TokenHelper::findNextContent($phpcsFile, [T_STRING], $methodName, $stackPtr);
 
         if ($methodPoint === null) {
             return; // @codeCoverageIgnore
@@ -62,6 +68,6 @@ class UseMethodPrefixInTestcaseSniff implements Sniff
 
         $phpcsFile->fixer->replaceToken($annotations[0]->getStartPointer(), '');
         $phpcsFile->fixer->replaceToken($annotations[0]->getStartPointer() -1, '');
-        $phpcsFile->fixer->replaceToken($methodPoint, 'test'.\ucfirst($methodName));
+        $phpcsFile->fixer->replaceToken($methodPoint, 'test'.ucfirst($methodName));
     }
 }

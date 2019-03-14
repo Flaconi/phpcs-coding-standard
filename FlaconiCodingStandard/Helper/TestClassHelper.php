@@ -5,6 +5,8 @@ namespace FlaconiCodingStandard\Helper;
 use PHP_CodeSniffer\Files\File;
 use SlevomatCodingStandard\Helpers\ClassHelper;
 use SlevomatCodingStandard\Helpers\TokenHelper;
+use function is_subclass_of;
+use const T_CLASS;
 
 /**
  * @author Alexander Miehe <alexander.miehe@flaconi.de>
@@ -18,7 +20,7 @@ class TestClassHelper
      */
     public static function isTestCaseClass(File $phpcsFile): bool
     {
-        $classPointer = TokenHelper::findNext($phpcsFile, [\T_CLASS], 0);
+        $classPointer = TokenHelper::findNext($phpcsFile, [T_CLASS], 0);
 
         if ($classPointer === null) {
             return false;
@@ -26,6 +28,6 @@ class TestClassHelper
 
         $className = ClassHelper::getFullyQualifiedName($phpcsFile, $classPointer);
 
-        return \is_subclass_of($className, 'PHPUnit\Framework\TestCase');
+        return is_subclass_of($className, 'PHPUnit\Framework\TestCase');
     }
 }
