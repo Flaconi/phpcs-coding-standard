@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace FlaconiCodingStandard\Sniffs\Test;
 
@@ -8,14 +10,11 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 use SlevomatCodingStandard\Helpers\AnnotationHelper;
 use SlevomatCodingStandard\Helpers\FunctionHelper;
 use SlevomatCodingStandard\Helpers\TokenHelper;
-use function count;
-use function ucfirst;
 use const T_FUNCTION;
 use const T_STRING;
+use function count;
+use function ucfirst;
 
-/**
- * @author Adam Szajuk <ext.adam.szajuk@flaconi.de>
- */
 class UseMethodPrefixInTestcaseSniff implements Sniff
 {
     public const TEST_ANNOTATION_USAGE_FOUND = 'TestAnnotationUsageFound';
@@ -23,22 +22,19 @@ class UseMethodPrefixInTestcaseSniff implements Sniff
     /**
      * @return array<int>
      */
-    public function register(): array
+    public function register() : array
     {
-        return [
-            T_FUNCTION,
-        ];
+        return [T_FUNCTION];
     }
 
     /**
-     * @param File $phpcsFile
-     * @param int  $stackPtr
+     * @param int $stackPtr
      *
-     * @phpcs:disable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
      */
-    public function process(File $phpcsFile, $stackPtr): void
+    public function process(File $phpcsFile, $stackPtr) : void
     {
-        if (!TestClassHelper::isTestCaseClass($phpcsFile)) {
+        if (! TestClassHelper::isTestCaseClass($phpcsFile)) {
             return;
         }
 
@@ -53,7 +49,7 @@ class UseMethodPrefixInTestcaseSniff implements Sniff
         $fix = $phpcsFile->addFixableError(
             'The PhpUnit TestCase is using a @test annotation instead of method prefix',
             $annotations[0]->getStartPointer(),
-            self::TEST_ANNOTATION_USAGE_FOUND
+            self::TEST_ANNOTATION_USAGE_FOUND,
         );
 
         if ($fix !== true) {
@@ -68,6 +64,6 @@ class UseMethodPrefixInTestcaseSniff implements Sniff
 
         $phpcsFile->fixer->replaceToken($annotations[0]->getStartPointer(), '');
         $phpcsFile->fixer->replaceToken($annotations[0]->getStartPointer() -1, '');
-        $phpcsFile->fixer->replaceToken($methodPoint, 'test'.ucfirst($methodName));
+        $phpcsFile->fixer->replaceToken($methodPoint, 'test' . ucfirst($methodName));
     }
 }
