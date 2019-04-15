@@ -108,13 +108,15 @@ To make this repository work on your machine, clone it and run these two command
 
 ```
 composer install
-bin/phing
+composer code-style
+composer tests
 ```
 
 After writing some code and editing or adding unit tests, run phing again to check that everything is OK:
 
 ```
-bin/phing
+composer code-style
+composer tests
 ```
 
 We are always looking forward for your bugreports, feature requests and pull requests. Thank you.

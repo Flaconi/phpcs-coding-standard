@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace FlaconiCodingStandard\Sniffs\Test;
 
@@ -7,28 +9,23 @@ use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use SlevomatCodingStandard\Helpers\IdentificatorHelper;
 use SlevomatCodingStandard\Helpers\TokenHelper;
+use const T_VARIABLE;
 use function array_filter;
 use function class_exists;
 use function get_class_methods;
 use function in_array;
 use function strpos;
-use const T_VARIABLE;
 
-/**
- * @author Alexander Miehe <alexander.miehe@flaconi.de>
- */
 class UseStaticCallsForAssertInTestcaseSniff implements Sniff
 {
     public const CODE_NON_STATIC_ASSERTION_METHOD_USAGE = 'NonStaticAssertionMethodUsage';
 
-    /**
-     * @var array<string>
-     */
+    /** @var array<string> */
     private $assertMethods;
 
     public function __construct()
     {
-        if (!class_exists('PHPUnit\Framework\Assert')) {
+        if (! class_exists('PHPUnit\Framework\Assert')) {
             return; // @codeCoverageIgnore
         }
 
@@ -36,30 +33,26 @@ class UseStaticCallsForAssertInTestcaseSniff implements Sniff
             get_class_methods('PHPUnit\Framework\Assert'),
             static function (string $method) {
                 return strpos($method, 'assert') === 0;
-            }
+            },
         );
     }
-
 
     /**
      * @return array<int>
      */
-    public function register(): array
+    public function register() : array
     {
-        return [
-            T_VARIABLE,
-        ];
+        return [T_VARIABLE];
     }
 
     /**
-     * @param File $phpcsFile
-     * @param int  $stackPtr
+     * @param int $stackPtr
      *
-     * @phpcs:disable SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
      */
-    public function process(File $phpcsFile, $stackPtr): void
+    public function process(File $phpcsFile, $stackPtr) : void
     {
-        if (!TestClassHelper::isTestCaseClass($phpcsFile)) {
+        if (! TestClassHelper::isTestCaseClass($phpcsFile)) {
             return;
         }
 
@@ -78,7 +71,7 @@ class UseStaticCallsForAssertInTestcaseSniff implements Sniff
         $fix = $phpcsFile->addFixableError(
             'The PhpUnit TestCase is using a non static usage of Assertion Methods',
             $methodPoint,
-            self::CODE_NON_STATIC_ASSERTION_METHOD_USAGE
+            self::CODE_NON_STATIC_ASSERTION_METHOD_USAGE,
         );
 
         if ($fix !== true) {
