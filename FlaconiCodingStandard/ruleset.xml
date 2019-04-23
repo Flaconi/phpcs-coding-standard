@@ -16,10 +16,10 @@
     <rule ref="Symfony.Functions.Arguments" />
     <rule ref="Symfony.Functions.ScopeOrder" />
     <rule ref="Symfony.Scope.MethodScope" />
-    <rule ref="Symfony.WhiteSpace.AssignmentSpacing" />
-    <rule ref="Symfony.WhiteSpace.BinaryOperatorSpacing" />
-    <rule ref="Symfony.WhiteSpace.CommaSpacing" />
-    <rule ref="Symfony.WhiteSpace.DiscourageFitzinator" />
+    <rule ref="Symfony.Whitespace.AssignmentSpacing" />
+    <rule ref="Symfony.Whitespace.BinaryOperatorSpacing" />
+    <rule ref="Symfony.Whitespace.CommaSpacing" />
+    <rule ref="Symfony.Whitespace.DiscourageFitzinator" />
 
     <rule ref="SlevomatCodingStandard.Arrays.DisallowImplicitArrayCreation" />
     <rule ref="SlevomatCodingStandard.Classes.UselessLateStaticBinding" />
