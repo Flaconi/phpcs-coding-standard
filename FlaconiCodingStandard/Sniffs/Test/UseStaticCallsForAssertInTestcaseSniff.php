@@ -33,7 +33,7 @@ class UseStaticCallsForAssertInTestcaseSniff implements Sniff
 
         $this->assertMethods = array_filter(
             get_class_methods('PHPUnit\Framework\Assert'),
-            static function (string $method) {
+            static function (string $method): bool {
                 return strpos($method, 'assert') === 0;
             },
         );
