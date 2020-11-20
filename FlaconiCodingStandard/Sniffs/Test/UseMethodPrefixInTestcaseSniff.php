@@ -10,10 +10,12 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 use SlevomatCodingStandard\Helpers\AnnotationHelper;
 use SlevomatCodingStandard\Helpers\FunctionHelper;
 use SlevomatCodingStandard\Helpers\TokenHelper;
-use const T_FUNCTION;
-use const T_STRING;
+
 use function count;
 use function ucfirst;
+
+use const T_FUNCTION;
+use const T_STRING;
 
 class UseMethodPrefixInTestcaseSniff implements Sniff
 {
@@ -22,17 +24,15 @@ class UseMethodPrefixInTestcaseSniff implements Sniff
     /**
      * @return array<int>
      */
-    public function register() : array
+    public function register(): array
     {
         return [T_FUNCTION];
     }
 
     /**
-     * @param int $stackPtr
-     *
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint
      */
-    public function process(File $phpcsFile, $stackPtr) : void
+    public function process(File $phpcsFile, $stackPtr): void
     {
         if (! TestClassHelper::isTestCaseClass($phpcsFile)) {
             return;
@@ -63,7 +63,7 @@ class UseMethodPrefixInTestcaseSniff implements Sniff
         }
 
         $phpcsFile->fixer->replaceToken($annotations[0]->getStartPointer(), '');
-        $phpcsFile->fixer->replaceToken($annotations[0]->getStartPointer() -1, '');
+        $phpcsFile->fixer->replaceToken($annotations[0]->getStartPointer() - 1, '');
         $phpcsFile->fixer->replaceToken($methodPoint, 'test' . ucfirst($methodName));
     }
 }
