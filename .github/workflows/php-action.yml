@@ -35,7 +35,7 @@ jobs:
           path: |
             ~/.composer/cache
             vendor
-          key: "php-${{ matrix.php-version }}-composer-locked-${{ hashFiles('flaconi_de/composer.lock') }}"
+          key: "php-${{ matrix.php-version }}-composer-locked-${{ hashFiles('composer.json') }}"
 
       - name: "Install dependencies with composer"
         run: "composer update --no-interaction --no-progress --no-suggest"
@@ -72,7 +72,7 @@ jobs:
           path: |
             ~/.composer/cache
             vendor
-          key: "php-${{ matrix.php-version }}-composer-locked-${{ hashFiles('flaconi_de/composer.lock') }}"
+          key: "php-${{ matrix.php-version }}-composer-locked-${{ hashFiles('composer.json') }}"
 
       - name: "Install dependencies with composer"
         run: "composer update --no-interaction --no-progress --no-suggest"
