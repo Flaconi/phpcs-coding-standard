@@ -15,7 +15,7 @@
 
     <rule ref="FlaconiCodingStandard" />
 
-    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingPropertyTypeHint">
+    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint">
         <exclude-pattern>*/tests/*</exclude-pattern>
     </rule>
 

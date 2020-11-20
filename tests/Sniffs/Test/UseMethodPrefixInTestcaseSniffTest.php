@@ -13,7 +13,7 @@ use SlevomatCodingStandard\Sniffs\TestCase;
  */
 class UseMethodPrefixInTestcaseSniffTest extends TestCase
 {
-    public function testErrors() : void
+    public function testErrors(): void
     {
         $report = self::checkFile(__DIR__ . '/Data/ClassWithTestAnnotation.php');
 
@@ -23,7 +23,7 @@ class UseMethodPrefixInTestcaseSniffTest extends TestCase
         self::assertAllFixedInFile($report);
     }
 
-    public function testIgnoreNonTestClass() : void
+    public function testIgnoreNonTestClass(): void
     {
         $report = self::checkFile(__DIR__ . '/Data/FileWithoutClass.php');
 

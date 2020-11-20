@@ -9,19 +9,21 @@ use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use SlevomatCodingStandard\Helpers\IdentificatorHelper;
 use SlevomatCodingStandard\Helpers\TokenHelper;
-use const T_VARIABLE;
+
 use function array_filter;
 use function class_exists;
 use function get_class_methods;
 use function in_array;
 use function strpos;
 
+use const T_VARIABLE;
+
 class UseStaticCallsForAssertInTestcaseSniff implements Sniff
 {
     public const CODE_NON_STATIC_ASSERTION_METHOD_USAGE = 'NonStaticAssertionMethodUsage';
 
     /** @var array<string> */
-    private $assertMethods;
+    private array $assertMethods;
 
     public function __construct()
     {
@@ -31,7 +33,7 @@ class UseStaticCallsForAssertInTestcaseSniff implements Sniff
 
         $this->assertMethods = array_filter(
             get_class_methods('PHPUnit\Framework\Assert'),
-            static function (string $method) {
+            static function (string $method): bool {
                 return strpos($method, 'assert') === 0;
             },
         );
@@ -40,17 +42,15 @@ class UseStaticCallsForAssertInTestcaseSniff implements Sniff
     /**
      * @return array<int>
      */
-    public function register() : array
+    public function register(): array
     {
         return [T_VARIABLE];
     }
 
     /**
-     * @param int $stackPtr
-     *
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint
      */
-    public function process(File $phpcsFile, $stackPtr) : void
+    public function process(File $phpcsFile, $stackPtr): void
     {
         if (! TestClassHelper::isTestCaseClass($phpcsFile)) {
             return;
