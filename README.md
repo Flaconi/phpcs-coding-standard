@@ -40,14 +40,10 @@ Reports usage of non static assert method class
 
 ## Installation
 
-The recommended way to install Slevomat Coding Standard is [through Composer](http://getcomposer.org).
+The recommended way to install Flaconi Coding Standard is [through Composer](http://getcomposer.org).
 
-```JSON
-{
-	"require-dev": {
-		"flaconi/coding-standard": "^1.0"
-	}
-}
+```console
+composer require --dev flaconi/coding-standard
 ```
 
 ## How to run the sniffs
@@ -56,7 +52,7 @@ You can choose one of two ways to run only selected sniffs from the standard on 
 
 ### Choose which sniffs to run
 
-Mention Slevomat Coding Standard in your project's `ruleset.xml`:
+Mention Flaconi Coding Standard in your project's `ruleset.xml`:
 
 ```xml
 <?xml version="1.0"?>
