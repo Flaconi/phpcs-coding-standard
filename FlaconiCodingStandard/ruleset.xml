@@ -29,7 +29,7 @@
     <rule ref="SlevomatCodingStandard.ControlStructures.DisallowShortTernaryOperator" />
     <rule ref="SlevomatCodingStandard.Commenting.UselessInheritDocComment" />
 
-    <rule ref="SlevomatCodingStandard.Functions.TrailingCommaInCall" />
+    <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInCall" />
 
     <rule ref="SlevomatCodingStandard.Functions.UselessParameterDefaultValue" />
     <rule ref="SlevomatCodingStandard.Functions.UnusedParameter" />
